@@ -1,4 +1,6 @@
+package algorithm;
 import java.util.*;
+import utils.*;
 
 public class Ucs {
     public static List<String> ladderPathUcs(String start, String end, HashSet<String> dict) {
@@ -30,21 +32,15 @@ public class Ucs {
                 }
             }
 
-            for (int i = 0; i < currWord.length(); i++) {
-                char[] currCharArr = currWord.toCharArray();
-                for (char c = 'a'; c <= 'z'; c++) {
-                    currCharArr[i] = c;
-                    String newWord = new String(currCharArr);
-                    if (dict.contains(newWord)) {
-                        wordQueue.add(newWord);
-                        distanceQueue.add(currDistance + 1);
-                        dict.remove(newWord);
+            List<String> neighbors = Neighbors.getNeighbors(currWord, dict);
+            for (String neighbor : neighbors) {
+                wordQueue.add(neighbor);
+                distanceQueue.add(currDistance + 1);
+                dict.remove(neighbor);
 
-                        LinkedList<String> newPath = new LinkedList<>(currentPathQueue);
-                        newPath.add(newWord);
-                        pathsQueue.add(newPath);
-                    }
-                }
+                LinkedList<String> newPath = new LinkedList<>(currentPathQueue);
+                newPath.add(neighbor);
+                pathsQueue.add(newPath);
             }
         }
 
@@ -54,5 +50,4 @@ public class Ucs {
             return new ArrayList<>();
         }
     }
-
 }

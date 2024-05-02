@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+import algorithm.Gbfs;
+import algorithm.Ucs;
+
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
