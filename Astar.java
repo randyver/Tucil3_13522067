@@ -1,9 +1,7 @@
 import java.util.*;
 
 public class Astar {
-    public static List<String> ladderPath(String start, String end, HashSet<String> dict) {
-        if (dict.size() == 0) return new ArrayList<>();
-        dict.add(end);
+    public static List<String> ladderPathAstar(String start, String end, HashSet<String> dict) {
 
         PriorityQueue<Node> openSet = new PriorityQueue<>(Comparator.comparingInt(n -> n.fCost));
         Map<String, Node> allNodes = new HashMap<>();
@@ -29,7 +27,7 @@ public class Astar {
             }
         }
 
-        return new ArrayList<>(); // No ladder found
+        return new ArrayList<>();
     }
 
     private static List<String> buildPath(Node endNode) {
@@ -43,7 +41,6 @@ public class Astar {
     }
 
     private static int heuristic(String word, String target) {
-        // Simple heuristic: count the number of differing characters
         int diffCount = 0;
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) != target.charAt(i)) {
@@ -81,24 +78,6 @@ public class Astar {
             this.gCost = gCost;
             this.hCost = hCost;
             this.fCost = gCost + hCost;
-        }
-    }
-
-    public static void main(String[] args) {
-        HashSet<String> dictionary = new HashSet<>();
-        dictionary.add("cat");
-        dictionary.add("cot");
-        dictionary.add("dot");
-        dictionary.add("dog");
-
-        String startWord = "cat";
-        String endWord = "dog";
-
-        List<String> path = ladderPath(startWord, endWord, dictionary);
-        if (!path.isEmpty()) {
-            System.out.println("Shortest ladder path: " + path);
-        } else {
-            System.out.println("No ladder found.");
         }
     }
 }

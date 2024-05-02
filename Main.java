@@ -21,10 +21,18 @@ public class Main {
         List<String> pathGbfs = Gbfs.ladderPathGbfs(startWord, endWord, new HashSet<>(dictionary));
         long endTimeGbfs = System.currentTimeMillis();
 
+        long startTimeAstar = System.currentTimeMillis();
+        List<String> pathAstar = Gbfs.ladderPathGbfs(startWord, endWord, new HashSet<>(dictionary));
+        long endTimeAstar = System.currentTimeMillis();
+
+        System.out.println("---------------------------------- RESULT ----------------------------------");
         System.out.println("UCS:");
         printPath(pathUcs, startTimeUcs, endTimeUcs);
         System.out.println("GBFS:");
         printPath(pathGbfs, startTimeGbfs, endTimeGbfs);
+        System.out.println("Astar:");
+        printPath(pathAstar, startTimeAstar, endTimeAstar);
+        System.out.println("----------------------------------------------------------------------------");
     }
 
     private static HashSet<String> readDictionaryFromFile(String filename) {
