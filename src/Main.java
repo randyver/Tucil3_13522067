@@ -2,8 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-import algorithm.Gbfs;
-import algorithm.Ucs;
+import algorithm.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,26 +32,38 @@ public class Main {
             } while (true);
     
             long startTimeUcs = System.currentTimeMillis();
-            List<String> pathUcs = Ucs.ladderPathUcs(startWord, endWord, new HashSet<>(dictionary));
+            Ucs SolveUcs = new Ucs();
+            SolveUcs.ladderPathUcs(startWord, endWord, new HashSet<>(dictionary));
             long endTimeUcs = System.currentTimeMillis();
+            List<String> pathUcs = SolveUcs.getSolution();
     
             long startTimeGbfs = System.currentTimeMillis();
-            List<String> pathGbfs = Gbfs.ladderPathGbfs(startWord, endWord, new HashSet<>(dictionary));
+            Gbfs SolveGbfs = new Gbfs();
+            SolveGbfs.ladderPathGbfs(startWord, endWord, new HashSet<>(dictionary));
             long endTimeGbfs = System.currentTimeMillis();
+            List<String> pathGbfs = SolveGbfs.getSolution();
     
             long startTimeAstar = System.currentTimeMillis();
-            List<String> pathAstar = Gbfs.ladderPathGbfs(startWord, endWord, new HashSet<>(dictionary));
+            Astar SolveAstar = new Astar();
+            SolveAstar.ladderPathAstar(startWord, endWord, new HashSet<>(dictionary));
             long endTimeAstar = System.currentTimeMillis();
+            List<String> pathAstar = SolveAstar.getSolution();
     
             System.out.println("---------------------------------- RESULT ----------------------------------");
             System.out.println("Uniform Cost Search");
             printPath(pathUcs, startTimeUcs, endTimeUcs);
+            System.out.print("Node visited count: ");
+            System.out.println(SolveUcs.getNodeVisited());
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("Greedy Best First Search");
             printPath(pathGbfs, startTimeGbfs, endTimeGbfs);
+            System.out.print("Node visited count: ");
+            System.out.println(SolveGbfs.getNodeVisited());
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("A star");
             printPath(pathAstar, startTimeAstar, endTimeAstar);
+            System.out.print("Node visited count: ");
+            System.out.println(SolveAstar.getNodeVisited());
             System.out.println("----------------------------------------------------------------------------");
     
             System.out.print("Do you want to run the program again? (y/n): ");

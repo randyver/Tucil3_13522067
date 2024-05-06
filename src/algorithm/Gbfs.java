@@ -3,7 +3,18 @@ import java.util.*;
 import utils.*;
 
 public class Gbfs {
-    public static List<String> ladderPathGbfs(String start, String end, HashSet<String> dict) {
+    private Integer nodeVisited;
+    private List<String> solution;
+
+    public List<String> getSolution(){
+        return solution;
+    }
+
+    public Integer getNodeVisited(){
+        return nodeVisited;
+    }
+
+    public void ladderPathGbfs(String start, String end, HashSet<String> dict) {
 
         PriorityQueue<String> wordQueue = new PriorityQueue<>(Comparator.comparingInt(s -> Heuristic.heuristic(s, end)));
         Map<String, String> cameFrom = new HashMap<>();
@@ -14,7 +25,7 @@ public class Gbfs {
         while (!wordQueue.isEmpty()) {
             String currWord = wordQueue.poll();
             if (currWord.equals(end)) {
-                return buildPath(cameFrom, end);
+                break;
             }
 
             for (String neighbor : Neighbors.getNeighbors(currWord, dict)) {
@@ -26,7 +37,8 @@ public class Gbfs {
             }
         }
 
-        return new ArrayList<>();
+        this.solution = buildPath(cameFrom, end);
+        this.nodeVisited = visited.size();
     }
 
     private static List<String> buildPath(Map<String, String> cameFrom, String end) {

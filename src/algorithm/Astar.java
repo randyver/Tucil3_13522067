@@ -3,8 +3,20 @@ import java.util.*;
 import utils.*;
 
 public class Astar {
-    public static List<String> ladderPathAstar(String start, String end, HashSet<String> dict) {
+    private Integer nodeVisited;
+    private List<String> solution;
 
+    public List<String> getSolution(){
+        return solution;
+    }
+
+    public Integer getNodeVisited(){
+        return nodeVisited;
+    }
+
+    public void ladderPathAstar(String start, String end, HashSet<String> dict) {
+
+        int nodeVisited = 0;
         PriorityQueue<Node> openSet = new PriorityQueue<>(Comparator.comparingInt(n -> n.fCost));
         Map<String, Node> allNodes = new HashMap<>();
 
@@ -14,8 +26,10 @@ public class Astar {
 
         while (!openSet.isEmpty()) {
             Node current = openSet.poll();
+            nodeVisited ++;
             if (current.word.equals(end)) {
-                return buildPath(current);
+                this.solution = buildPath(current);
+                break;
             }
 
             for (String neighbor : Neighbors.getNeighbors(current.word, dict)) {
@@ -29,7 +43,7 @@ public class Astar {
             }
         }
 
-        return new ArrayList<>();
+        this.nodeVisited = nodeVisited;
     }
 
     private static List<String> buildPath(Node endNode) {

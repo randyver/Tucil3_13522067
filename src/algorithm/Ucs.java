@@ -3,7 +3,18 @@ import java.util.*;
 import utils.*;
 
 public class Ucs {
-    public static List<String> ladderPathUcs(String start, String end, HashSet<String> dict) {
+    private Integer nodeVisited;
+    private List<String> solution;
+
+    public List<String> getSolution(){
+        return solution;
+    }
+
+    public Integer getNodeVisited(){
+        return nodeVisited;
+    }
+
+    public void ladderPathUcs(String start, String end, HashSet<String> dict) {
 
         LinkedList<String> wordQueue = new LinkedList<>();
         LinkedList<Integer> distanceQueue = new LinkedList<>();
@@ -19,11 +30,13 @@ public class Ucs {
         pathsQueue.add(path);
 
         int result = Integer.MAX_VALUE;
+        int nodeVisited = 0;
 
         while (!wordQueue.isEmpty()) {
             String currWord = wordQueue.pop();
             Integer currDistance = distanceQueue.pop();
             LinkedList<String> currentPathQueue = pathsQueue.pop();
+            nodeVisited ++;
 
             if (currWord.equals(end)) {
                 if (currDistance < result) {
@@ -44,10 +57,8 @@ public class Ucs {
             }
         }
 
-        if (result < Integer.MAX_VALUE) {
-            return solution;
-        } else {
-            return new ArrayList<>();
-        }
+        this.solution = solution;
+        this.nodeVisited = nodeVisited;
+
     }
 }
