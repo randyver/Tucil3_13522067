@@ -16,6 +16,7 @@ public class Gbfs {
 
     public void ladderPathGbfs(String start, String end, HashSet<String> dict) {
 
+        boolean isFound = false;
         PriorityQueue<String> wordQueue = new PriorityQueue<>(Comparator.comparingInt(s -> Heuristic.heuristic(s, end)));
         Map<String, String> cameFrom = new HashMap<>();
         Set<String> visited = new HashSet<>();
@@ -25,6 +26,8 @@ public class Gbfs {
         while (!wordQueue.isEmpty()) {
             String currWord = wordQueue.poll();
             if (currWord.equals(end)) {
+                this.solution = buildPath(cameFrom, end);
+                isFound = true;
                 break;
             }
 
@@ -37,7 +40,10 @@ public class Gbfs {
             }
         }
 
-        this.solution = buildPath(cameFrom, end);
+        if(!isFound){
+            this.solution = new ArrayList<>();
+        }
+
         this.nodeVisited = visited.size();
     }
 

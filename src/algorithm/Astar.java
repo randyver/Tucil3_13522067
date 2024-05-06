@@ -16,6 +16,8 @@ public class Astar {
 
     public void ladderPathAstar(String start, String end, HashSet<String> dict) {
 
+        boolean isFound = false;
+
         int nodeVisited = 0;
         PriorityQueue<Node> openSet = new PriorityQueue<>(Comparator.comparingInt(n -> n.fCost));
         Map<String, Node> allNodes = new HashMap<>();
@@ -29,6 +31,7 @@ public class Astar {
             nodeVisited ++;
             if (current.word.equals(end)) {
                 this.solution = buildPath(current);
+                isFound = true;
                 break;
             }
 
@@ -43,6 +46,9 @@ public class Astar {
             }
         }
 
+        if(!isFound){
+            this.solution = new ArrayList<>();
+        }
         this.nodeVisited = nodeVisited;
     }
 
