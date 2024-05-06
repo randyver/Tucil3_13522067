@@ -1,0 +1,58 @@
+Start word    : drive
+End word      : cycle 
+---------------------------------- RESULT ----------------------------------
+Uniform Cost Search
+
+1. drive
+2. wrive
+3. waive
+4. warve
+5. carve
+6. carle
+7. cable
+8. coble
+9. cocle
+10. cycle
+
+Length path: 10
+Execution time: 184 ms
+Node visited count: 14556
+----------------------------------------------------------------------------
+Greedy Best First Search
+
+1. drive
+2. drave
+3. crave
+4. chave
+5. cheve
+6. chese
+7. chuse
+8. cause
+9. carse
+10. carle
+11. cable
+12. coble
+13. cocle
+14. cycle
+
+Length path: 14
+Execution time: 23 ms
+Node visited count: 252
+----------------------------------------------------------------------------
+A star
+
+1. drive
+2. wrive
+3. waive
+4. warve
+5. carve
+6. carle
+7. cable
+8. coble
+9. cocle
+10. cycle
+
+Length path: 10
+Execution time: 43 ms
+Node visited count: 647
+----------------------------------------------------------------------------

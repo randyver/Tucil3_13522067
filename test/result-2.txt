@@ -1,0 +1,52 @@
+Start word    : paper    
+End word      : place
+---------------------------------- RESULT ----------------------------------
+Uniform Cost Search
+
+1. paper
+2. paler
+3. pales
+4. peles
+5. pelts
+6. peats
+7. plats
+8. plate
+9. place
+
+Length path: 9
+Execution time: 618 ms
+Node visited count: 14556
+----------------------------------------------------------------------------
+Greedy Best First Search
+
+1. paper
+2. paler
+3. palew
+4. pelew
+5. peles
+6. pelts
+7. peats
+8. plats
+9. plate
+10. place
+
+Length path: 10
+Execution time: 25 ms
+Node visited count: 135
+----------------------------------------------------------------------------
+A star
+
+1. paper
+2. paler
+3. pales
+4. peles
+5. pelts
+6. peats
+7. plats
+8. plate
+9. place
+
+Length path: 9
+Execution time: 98 ms
+Node visited count: 706
+----------------------------------------------------------------------------

@@ -1,0 +1,40 @@
+Start word    : ant
+End word      : car
+---------------------------------- RESULT ----------------------------------
+Uniform Cost Search
+
+1. ant
+2. jnt
+3. jat
+4. cat
+5. car
+
+Length path: 5
+Execution time: 35 ms
+Node visited count: 2128
+----------------------------------------------------------------------------
+Greedy Best First Search
+
+1. ant
+2. any
+3. ary
+4. cry
+5. cay
+6. car
+
+Length path: 6
+Execution time: 47 ms
+Node visited count: 107
+----------------------------------------------------------------------------
+A star
+
+1. ant
+2. jnt
+3. jat
+4. cat
+5. car
+
+Length path: 5
+Execution time: 20 ms
+Node visited count: 37
+----------------------------------------------------------------------------

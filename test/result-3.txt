@@ -1,0 +1,67 @@
+Start word    : apple
+End word      : quiet
+---------------------------------- RESULT ----------------------------------
+Uniform Cost Search
+
+1. apple
+2. ample
+3. amole
+4. atole
+5. stole
+6. stile
+7. stine
+8. suine
+9. suint
+10. quint
+11. quiet
+
+Length path: 11
+Execution time: 197 ms
+Node visited count: 14556
+----------------------------------------------------------------------------
+Greedy Best First Search
+
+1. apple
+2. apply
+3. appay
+4. appal
+5. aptal
+6. attal
+7. attar
+8. atter
+9. otter
+10. outer
+11. muter
+12. muser
+13. muset
+14. mulet
+15. culet
+16. curet
+17. buret
+18. burst
+19. buist
+20. quist
+21. quiet
+
+Length path: 21
+Execution time: 21 ms
+Node visited count: 542
+----------------------------------------------------------------------------
+A star
+
+1. apple
+2. ample
+3. amole
+4. atole
+5. stole
+6. stile
+7. stilt
+8. stint
+9. suint
+10. quint
+11. quiet
+
+Length path: 11
+Execution time: 39 ms
+Node visited count: 153
+----------------------------------------------------------------------------

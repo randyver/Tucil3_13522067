@@ -1,0 +1,58 @@
+Start word    : water
+End word      : fruit
+---------------------------------- RESULT ----------------------------------
+Uniform Cost Search
+
+1. water
+2. pater
+3. payer
+4. pryer
+5. fryer
+6. freer
+7. freir
+8. freit
+9. fruit
+
+Length path: 9
+Execution time: 262 ms
+Node visited count: 14556
+----------------------------------------------------------------------------
+Greedy Best First Search
+
+1. water
+2. bater
+3. bates
+4. fates
+5. fated
+6. feted
+7. feued
+8. flued
+9. fluer
+10. flurr
+11. flurt
+12. blurt
+13. bluet
+14. bruet
+15. bruit
+16. fruit
+
+Length path: 16
+Execution time: 33 ms
+Node visited count: 250
+----------------------------------------------------------------------------
+A star
+
+1. water
+2. pater
+3. payer
+4. pryer
+5. fryer
+6. freer
+7. freir
+8. freit
+9. fruit
+
+Length path: 9
+Execution time: 48 ms
+Node visited count: 788
+----------------------------------------------------------------------------

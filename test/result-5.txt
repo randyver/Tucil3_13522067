@@ -1,0 +1,33 @@
+Start word    : door   
+End word      : book
+---------------------------------- RESULT ----------------------------------
+Uniform Cost Search
+
+1. door
+2. boor
+3. book
+
+Length path: 3
+Execution time: 99 ms
+Node visited count: 7081
+----------------------------------------------------------------------------
+Greedy Best First Search
+
+1. door
+2. boor
+3. book
+
+Length path: 3
+Execution time: 16 ms
+Node visited count: 25
+----------------------------------------------------------------------------
+A star
+
+1. door
+2. boor
+3. book
+
+Length path: 3
+Execution time: 25 ms
+Node visited count: 4
+----------------------------------------------------------------------------
